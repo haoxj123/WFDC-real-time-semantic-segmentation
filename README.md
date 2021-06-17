@@ -37,3 +37,4 @@ python flops.py   size (3,512,1024)
 
 
 ![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig2.jpg)
+From left to right are: original image, ground truth, the result of WFDCNet with FCS-V module, the result of our WFDCNet with FCS module.
