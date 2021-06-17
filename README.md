@@ -35,10 +35,12 @@ python flops.py   size (3,512,1024)
 
 # Result
 Training accuracy：
+
 ![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig0.jpg)
 
 
 Training loss：
+
 ![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig1.jpg)
 
 ![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig2.jpg)
