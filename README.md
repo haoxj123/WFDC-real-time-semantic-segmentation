@@ -12,11 +12,15 @@ numpy 1.16
 opencv 4.2
 # Dataset
 
-Save the dataset in the path "/dataset/cityscapes/..." and other datasets are placed in corresponding folders, such as "/dataset/camvid/..."
+Save the dataset in the path "/dataset/cityscapes/..." 
+
+Other datasets are placed in corresponding folders, such as "/dataset/camvid/..."
 # Train
 training model:
 
 python train.py --dataset  --max_epochs 1200 --input_size 512,1024 --lr 4.5e-2 --batch_size 6 --classes 19 --gpus 0 or 1
+
+
 
 # Test model
 python test.py --dataset   --batch_size 1 --checkpoint "The path of the trained weights"
@@ -30,8 +34,6 @@ python fps.py 512,1024 --classes 19
 python flops.py   size (3,512,1024)
 
 # Result 
-mIoU | params | FPS | FLOPs
----  | ------ | --- | -----
-73.7 | 0.5 | 102.6 | 5.7
+
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
