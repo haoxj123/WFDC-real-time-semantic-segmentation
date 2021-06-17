@@ -1,4 +1,5 @@
 # WFDC-real-time-semantic-segmentation
+#version and environment:
 pytorch 1.5/
 python 3.6/
 torchvision 0.6/
