@@ -36,4 +36,4 @@ python flops.py   size (3,512,1024)
 # Result 
 
 
-![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig5.pdf)
+![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig2.jpg)
