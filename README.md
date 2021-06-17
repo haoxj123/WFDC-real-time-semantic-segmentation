@@ -34,5 +34,4 @@ mIoU | params | FPS | FLOPs
 ---  | ------ | --- | -----
 73.7 | 0.5 | 102.6 | 5.7
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
