@@ -33,8 +33,13 @@ python fps.py 512,1024 --classes 19
 # FLOPs and params
 python flops.py   size (3,512,1024)
 
-# Result 
+# Result
+Training accuracy：
+![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig0.jpg)
 
+
+Training loss：
+![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig1.jpg)
 
 ![image](https://github.com/haoxj123/WFDC-real-time-semantic-segmentation/blob/main/visualization/fig2.jpg)
 From left to right are: original image, ground truth, the result of WFDCNet with FCS-V module, the result of our WFDCNet with FCS module.
