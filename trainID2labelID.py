@@ -30,6 +30,6 @@ def trainIDs2LabelID(trainID_png_dir, save_dir):
 
 
 if __name__ == '__main__':
-    trainID_png_dir = '/home/media/DABNet/result/cityscapes/predict/DABNet/'
-    save_dir = '/home/media/DABNet/result/cityscapes_submit/'
+    trainID_png_dir = '/home/media/WFDCNet/result/cityscapes/predict/WFDCNet/'
+    save_dir = '/home/media/WFDCNet/result/cityscapes_submit/'
     trainIDs2LabelID(trainID_png_dir, save_dir)
