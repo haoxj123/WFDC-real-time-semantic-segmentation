@@ -136,7 +136,7 @@ def test_model(args):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--model', default="WFDCNet", help="")
-    parser.add_argument('--dataset', default="cityscapes", help="dataset: cityscapes or camvid")
+    parser.add_argument('--dataset', default="cityscapes", help="")
     parser.add_argument('--num_workers', type=int, default=1, help="the number of parallel threads")
     parser.add_argument('--batch_size', type=int, default=1,
                         help=" the batch_size is set to 1 when evaluating or testing")
@@ -155,10 +155,6 @@ if __name__ == '__main__':
 
     if args.dataset == 'cityscapes':
         args.classes = 19
-    elif args.dataset == 'camvid':
-        args.classes = 11
-    else:
-        raise NotImplementedError(
-            "This repository now supports two datasets: cityscapes and camvid, %s is not included" % args.dataset)
+   
 
     test_model(args)
