@@ -181,12 +181,7 @@ def train_model(args):
         logger.write("\n%s\t\t%s\t%s\t%s" % ('Epoch', 'Loss(Tr)', 'mIOU (val)', 'lr'))
     logger.flush()
 
-
-    if args.dataset == 'camvid':
-        optimizer = torch.optim.Adam(
-            filter(lambda p: p.requires_grad, model.parameters()), args.lr, (0.9, 0.999), eps=1e-08, weight_decay=2e-4)
-
-    elif args.dataset == 'cityscapes':
+    if args.dataset == 'cityscapes':
         optimizer = torch.optim.SGD(
             filter(lambda p: p.requires_grad, model.parameters()), args.lr, momentum=0.9, weight_decay=1e-4)
 
@@ -260,22 +255,22 @@ if __name__ == '__main__':
     start = timeit.default_timer()
     parser = ArgumentParser()
     parser.add_argument('--model', default="WFDCNet", help="")
-    parser.add_argument('--dataset', default="cityscapes", help="dataset: cityscapes or camvid")
+    parser.add_argument('--dataset', default="cityscapes", help="")
     parser.add_argument('--train_type', type=str, default="trainval",
-                        help="ontrain for training on train set, ontrainval for training on train+val set")
-    parser.add_argument('--max_epochs', type=int, default=800,
-                        help="the number of epochs: 300 for train set, 350 for train+val set")
+                        help="")
+    parser.add_argument('--max_epochs', type=int, default=1200,
+                        help="")
     parser.add_argument('--input_size', type=str, default="512,1024", help="input size of model")
     parser.add_argument('--random_mirror', type=bool, default=True, help="input image random mirror")
     parser.add_argument('--random_scale', type=bool, default=True, help="input image resize 0.5 to 2")
     parser.add_argument('--num_workers', type=int, default=4, help=" the number of parallel threads")
     parser.add_argument('--lr', type=float, default=4.5e-2, help="initial learning rate")
-    parser.add_argument('--batch_size', type=int, default=8, help="the batch size is set to 16 for 2 GPUs")
+    parser.add_argument('--batch_size', type=int, default=6, help="")
     parser.add_argument('--savedir', default="./checkpoint/", help="directory to save the model snapshot")
-    parser.add_argument('--resume', type=str, default="/home/media/DABNet/checkpoint/cityscapes/DABNetbs5gpu1_train/model_691.pth",
+    parser.add_argument('--resume', type=str, default="",
                         help="use this file to load last checkpoint for continuing training")
     parser.add_argument('--classes', type=int, default=19,
-                        help="the number of classes in the dataset. 19 and 11 for cityscapes and camvid, respectively")
+                        help="")
     parser.add_argument('--logFile', default="log.txt", help="storing the training and validation logs")
     parser.add_argument('--cuda', type=bool, default=True, help="running on CPU or GPU")
     parser.add_argument('--gpus', type=str, default="1", help="default GPU devices (0,1)")
@@ -285,14 +280,7 @@ if __name__ == '__main__':
         args.classes = 19
         args.input_size = '512,1024'
         ignore_label = 255
-    elif args.dataset == 'camvid':
-        args.classes = 11
-        args.input_size = '360,480'
-        ignore_label = 11
-    else:
-        raise NotImplementedError(
-            "This repository now supports two datasets: cityscapes and camvid, %s is not included" % args.dataset)
-
+    
     train_model(args)
     end = timeit.default_timer()
     hour = 1.0 * (end - start) / 3600
