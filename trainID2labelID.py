@@ -1,10 +1,8 @@
-# converting trainIDs to labelIDs for evaluating the test set segmenatation results of the cityscapes dataset
-
 import numpy as np
 import os
 from PIL import Image
 
-# index: trainId from 0 to 18, 19 semantic class   val: labelIDs
+
 cityscapes_trainIds2labelIds = np.array([7, 8, 11, 12, 13, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33],
                                         dtype=np.uint8)
 
@@ -15,13 +13,11 @@ def trainIDs2LabelID(trainID_png_dir, save_dir):
         os.makedirs(save_dir)
     png_list = os.listdir(trainID_png_dir)
     for index, png_filename in enumerate(png_list):
-        #
         png_path = os.path.join(trainID_png_dir, png_filename)
-        # print(png_path)
         print('processing(', index, '/', len(png_list), ') ....')
-        image = Image.open(png_path)  # image is a PIL #image
+        image = Image.open(png_path)  
         pngdata = np.array(image)
-        trainID = pngdata  # model prediction
+        trainID = pngdata  
         row, col = pngdata.shape
         labelID = np.zeros((row, col), dtype=np.uint8)
         for i in range(row):
@@ -34,6 +30,6 @@ def trainIDs2LabelID(trainID_png_dir, save_dir):
 
 
 if __name__ == '__main__':
-    trainID_png_dir = './result/cityscapes/predict/DABNet'
-    save_dir = './result/cityscapes_submit/'
+    trainID_png_dir = '/home/media/DABNet/result/cityscapes/predict/DABNet/'
+    save_dir = '/home/media/DABNet/result/cityscapes_submit/'
     trainIDs2LabelID(trainID_png_dir, save_dir)
